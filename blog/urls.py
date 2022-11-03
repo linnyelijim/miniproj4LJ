@@ -5,8 +5,8 @@ from django.urls import path
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
     path('post_detail/', views.post_detail, name='post_detail'),
-    path('about/', views.about, name='about'),
-    path('games/', views.games, name='games'),
+    path('about/', views.About.as_view(), name='about'),
+    path('games/', views.Games.as_view(), name='games'),
     path('contact/', views.contact, name='contact'),
     path('success/', views.success, name='success'),
 ]

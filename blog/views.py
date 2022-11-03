@@ -68,9 +68,9 @@ def success(request):
     return HttpResponse('Success! Thank you for your message.')
 
 
-def about(request):
-    return HttpResponse('Success! Thank you for your message.')
+class About(generic.TemplateView):
+    template_name = "about.html"
 
 
-def games(request):
-    return HttpResponse('Success! Thank you for your message.')
+class Games(generic.TemplateView):
+    template_name = "games.html"
