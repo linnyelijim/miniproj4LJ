@@ -42,10 +42,12 @@ class Comment(models.Model):
         return 'Comment {} by {}'.format(self.body, self.name)
 
 
-class ContactForm(forms.Form):
-    from_email = forms.EmailField(required=True)
-    subject = forms.CharField(required=True)
-    message = forms.CharField(widget=forms.Textarea, required=True)
+class Contact(forms.Form):
+    first_name = forms.CharField(max_length=50, required=True)
+    last_name = forms.CharField(max_length=50, required=True)
+    email = forms.EmailField(max_length=150, required=True)
+    subject = forms.CharField(max_length=50, required=True)
+    message = forms.CharField(max_length=2000, widget=forms.Textarea, required=True)
 
     class Meta:
         ordering = ['created_on']

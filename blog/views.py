@@ -9,14 +9,14 @@ from django.http import HttpResponse
 # Provides generic list with objects of specified model
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = 'home/templates/index.html'
+    template_name = 'index.html'
     paginate_by = 3
 
 
 # Provides a detailed view for given object of the model
-def post_detail(request, slug):
+def post_detail(request):
     template_name = 'post_detail.html'
-    post = get_object_or_404(Post, slug=slug)
+    post = get_object_or_404(Post)
     comments = post.comments.filter(active=True)
     new_comment = None
     # Comment posted
@@ -47,7 +47,8 @@ def contact(request):
             body = {
                 'first_name': form.cleaned_data['first_name'],
                 'last_name': form.cleaned_data['last_name'],
-                'email': form.cleaned_data['email_address'],
+                'email': form.cleaned_data['email'],
+                'subject': form.cleaned_data['subject'],
                 'message': form.cleaned_data['message'],
             }
             message = "\n".join(body.values())
@@ -59,8 +60,17 @@ def contact(request):
             return redirect('success')
 
     form = ContactForm()
-    return render(request, 'contact.html', {'form': form})
+    return render(request, 'contact.html', {'form': form,
+                                            })
 
 
 def success(request):
+    return HttpResponse('Success! Thank you for your message.')
+
+
+def about(request):
+    return HttpResponse('Success! Thank you for your message.')
+
+
+def games(request):
     return HttpResponse('Success! Thank you for your message.')
