@@ -106,6 +106,13 @@ nav h1 {
     margin: auto 30%;
 }
 
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
 .action {
     background-image: linear-gradient(
             to right,

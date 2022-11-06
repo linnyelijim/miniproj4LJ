@@ -12,7 +12,7 @@
     {% load crispy_forms_tags %}
 
     <!--Login-->
-    <div class="container py-5">
+    <div class="container py-5" id="loginForm">
         <h1>Login</h1>
         <form method="POST">
             {% csrf_token %}
@@ -20,8 +20,8 @@
             <button class="btn btn-primary" type="submit">Login</button>
         </form>
         <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.
-        <br>
-        Forgot your password? <a href="/password_reset">Reset password</a>.</p>
+            <br>
+            Forgot your password? <a href="/password_reset">Reset password</a>.</p>
     </div>
 
 {% endblock %}
