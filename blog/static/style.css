@@ -3,14 +3,42 @@ html {
     background: #bcbbad;
     padding: 2rem;
 }
-
 body {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: #4455220a;
-    border: 8px ridge #3c2904;
+    border: 13px ridge #3c2904;
     box-shadow: 15px 15px 20px 8px #101e3a91;
 }
+#base-style body {
+    font-family: "Fantasy", sans-serif;
+    font-size: 17px;
+    background-color: #fdfdfd;
+    max-width: 1100px;
+    margin: 0 auto;
+
+}
+
+#base-style .shadow {
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+}
+
+#base-style .btn-danger {
+    color: #fff;
+    background-color: #f00000;
+    border-color: #dc281e;
+}
+
+#base-style .masthead {
+    background: #9ebe7c;
+    text-align: center;
+    height: auto;
+    padding-bottom: 15px;
+    box-shadow: 0 16px 48px #E3E7EB;
+    padding-top: 10px;
+}
+
+.card {
+    box-shadow: 0 16px 48px #E3E7EB;
+}
+
 
 h1 {
     font-family: serif;
@@ -70,7 +98,6 @@ hr {
 
 nav {
     background: #aaab7ea3; /* display: flex; */
-    align-items: center;
     padding: 0 0.5rem;
 }
 
@@ -78,6 +105,7 @@ nav h1 {
     flex: auto;
     margin: auto 30%;
 }
+
 .action {
     background-image: linear-gradient(
             to right,
@@ -87,6 +115,7 @@ nav h1 {
     );
     color: #7c6957;
 }
+
 .brains {
     font-weight: 100;
     font-size: 65px;
@@ -143,20 +172,24 @@ nav ul li a, nav ul li span, header .action {
     margin: 1rem 0 0.25rem 0;
     color: #ebcea8;
 }
+
 .content p {
     color: #ebcea8;
 }
+
 .flash {
     margin: 1em 0;
     padding: 1em;
     background: #cae6f6;
     border: 1px solid #377ba8;
 }
+
 .post {
     margin-top: 1rem;
     background-color: #fefefe;
     border: solid #7c6957;
 }
+
 .post > header {
     display: flex;
     align-items: flex-end;
@@ -269,32 +302,39 @@ input[type=submit] {
     box-shadow: 0 0 4px 0 #00000087;
     margin-top: 15px;
 }
+
 .accordion {
     padding-top: 2rem;
 }
+
 #faq, .accordion-header {
     background-color: transparent;
     margin-top: 0;
 }
+
 .accordion-button {
-color: #42372c;
+    color: #42372c;
     background-color: #e3dea1;
 }
+
 .accordion-button:not(.collapsed) {
-    color:#fefefe;
-    background-color:#a49a08e0;
+    color: #fefefe;
+    background-color: #a49a08e0;
     box-shadow: #aba11b;
 }
+
 .accordion-item {
     color: #7c6957;
     border: solid #f8f1d9;
 }
+
 .card-body p {
     color: #3c2904;
     background-color: rgba(124, 105, 87, 0.09);
     padding: 1rem;
     font-size: 15px;
 }
+
 .faq h2 {
     padding-top: 4rem;
 }

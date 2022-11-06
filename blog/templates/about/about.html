@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'home/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 {% block header %}
@@ -9,6 +9,7 @@
 </head>
 <body>
 {% block content %}
+     {% block sidebar %} {% include 'home/sidebar.html' %} {% endblock sidebar %}
     <div class="container">
         <div class="row">
             <div style="margin:80px">
@@ -42,7 +43,7 @@
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
                             <div class="accordion-body">
-                                <strong>Go to our <a href="contact.html">contact</a> page.</strong> There you will find
+                                <strong>Go to our <a href="../contact/contact.html">contact</a> page.</strong> There you will find
                                 a form that
                                 you can fill out with your name, your e-mail, the subject of your message, and a short
                                 description
@@ -61,7 +62,7 @@
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
                             <div class="accordion-body">
-                                <strong>Click on the <a href="index.html">BRAINS&GAMES</a> title.</strong> Once on the
+                                <strong>Click on the <a href="../home/index.html">BRAINS&GAMES</a> title.</strong> Once on the
                                 main blog
                                 page, you should be able to see all of your posts and the other user's posts. So long as
                                 you are
@@ -84,7 +85,7 @@
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
                             <div class="accordion-body">
-                                <strong>Click on the <a href="index.html">BRAINS&GAMES</a> title.</strong> First, ensure
+                                <strong>Click on the <a href="../home/index.html">BRAINS&GAMES</a> title.</strong> First, ensure
                                 that you
                                 are logged into your account, otherwise you won't be able to post. Once logged in,
                                 follow your

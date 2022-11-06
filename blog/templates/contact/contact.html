@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'home/base.html' %}
 {% load crispy_forms_filters %}
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
 {% endblock %}
 <body>
 {% block content %}
-    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+    {% block sidebar %} {% include 'home/sidebar.html' %} {% endblock sidebar %}
     <<!--Contact form-->
     <div class="container">
         <div class="row">
@@ -19,12 +19,12 @@
                     One of our staff members will be happy to contact you directly and answer your questions as soon as
                     possible.
                 </p>
-                {% load crispy_forms_tags %}
+
                 <div class="col-md-8 card mb-4  mt-3 ">
                     <div class="card-body">
                         <h3>Contact Us</h3>
                         <form method="post" style="margin-top: 1.3em;">
-                            {{ contact_form | crispy }}
+                            {{ form | crispy }}
                             {% csrf_token %}
                             <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
                         </form>
