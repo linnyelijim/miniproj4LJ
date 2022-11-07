@@ -1,3 +1,7 @@
+# INF601 - Advanced Programming in Python
+# Lindsey Jimenez
+# Mini Project 4
+
 from django.db import models
 from django.contrib.auth.models import User
 from django import forms
@@ -26,7 +30,7 @@ class Post(models.Model):
         return self.title
 
 
-# Creates comment model
+# Creates comment model form
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80)
@@ -42,6 +46,7 @@ class Comment(models.Model):
         return 'Comment {} by {}'.format(self.body, self.name)
 
 
+# Creates contact model form
 class Contact(forms.Form):
     first_name = forms.CharField(max_length=50, required=True)
     last_name = forms.CharField(max_length=50, required=True)

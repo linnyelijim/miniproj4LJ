@@ -1,3 +1,7 @@
+# INF601 - Advanced Programming in Python
+# Lindsey Jimenez
+# Mini Project 4
+
 """miniproj4LJ URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -17,11 +21,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
-# Admin url
+# Admin urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
-    # path('accounts/', include('django.contrib.auth.urls')),
     path('password_reset/done/',
          auth_views.PasswordResetDoneView.as_view(template_name='accounts/password_reset_done.html'),
          name='password_reset_done'),

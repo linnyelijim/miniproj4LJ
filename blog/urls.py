@@ -1,7 +1,11 @@
+# INF601 - Advanced Programming in Python
+# Lindsey Jimenez
+# Mini Project 4
+
 from . import views
 from django.urls import path
 
-# contains all app urls
+# Contains all app urls
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
     path('post_detail/', views.post_detail, name='post_detail'),

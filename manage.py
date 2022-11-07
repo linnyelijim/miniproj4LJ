@@ -1,4 +1,8 @@
-#!/usr/bin/env python
+# INF601 - Advanced Programming in Python
+# Lindsey Jimenez
+# Mini Project 4
+
+# !/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os
 import sys

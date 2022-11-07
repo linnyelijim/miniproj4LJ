@@ -1,3 +1,7 @@
+# INF601 - Advanced Programming in Python
+# Lindsey Jimenez
+# Mini Project 4
+
 from .forms import CommentForm, ContactForm, NewUserForm
 from .models import Post
 from django.contrib import messages
@@ -47,6 +51,7 @@ def post_detail(request):
                                            'comment_form': comment_form})
 
 
+# Accepts contact inquiry
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -72,18 +77,22 @@ def contact(request):
                                                     })
 
 
+# Creates success response
 def success(request):
     return HttpResponse('Success! Thank you for your message.')
 
 
+# Will contain about page details if needed
 class About(generic.TemplateView):
     template_name = "about/about.html"
 
 
+# Will contain games page details if needed
 class Games(generic.TemplateView):
     template_name = "games/games.html"
 
 
+# Allows user to register an account
 def register_request(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
@@ -97,6 +106,7 @@ def register_request(request):
     return render(request=request, template_name="accounts/register.html", context={"register_form": form})
 
 
+# Allows user to login
 def login_request(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
@@ -116,6 +126,7 @@ def login_request(request):
     return render(request=request, template_name="accounts/login.html", context={"login_form": form})
 
 
+# Allows user to logout
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")

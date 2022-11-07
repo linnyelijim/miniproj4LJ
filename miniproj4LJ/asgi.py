@@ -1,3 +1,7 @@
+# INF601 - Advanced Programming in Python
+# Lindsey Jimenez
+# Mini Project 4
+
 """
 ASGI config for miniproj4LJ project.
 
