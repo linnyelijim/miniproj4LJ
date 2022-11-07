@@ -38,7 +38,11 @@ body {
 .card {
     box-shadow: 0 16px 48px #E3E7EB;
 }
-
+#gameCards {
+    display: flex;
+    width: 95%;
+    padding-left: 5%;
+}
 
 h1 {
     font-family: serif;
@@ -105,7 +109,16 @@ nav h1 {
     flex: auto;
     margin: auto 30%;
 }
+.container {
+    margin-top: 80px;
+}
+.row>* {
+    flex-shrink: inherit;
+}
 
+.col-md-8 {
+    width: 66.66666%;
+}
 p {
     display: block;
     margin-block-start: 1em;
@@ -122,7 +135,6 @@ p {
     );
     color: #7c6957;
 }
-
 .brains {
     font-weight: 100;
     font-size: 65px;
@@ -311,7 +323,9 @@ input[type=submit] {
 }
 
 .accordion {
-    padding-top: 2rem;
+    padding-top: 1rem;
+    margin-bottom: 40px;
+
 }
 
 #faq, .accordion-header {
@@ -343,5 +357,5 @@ input[type=submit] {
 }
 
 .faq h2 {
-    padding-top: 4rem;
+    padding-top: 1rem;
 }
