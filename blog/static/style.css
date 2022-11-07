@@ -7,6 +7,12 @@ body {
     border: 13px ridge #3c2904;
     box-shadow: 15px 15px 20px 8px #101e3a91;
 }
+.container {
+    margin-top: 8%;
+}
+#indexPage .container {
+    margin-top: 1%;
+}
 #base-style body {
     font-family: "Fantasy", sans-serif;
     font-size: 17px;
@@ -109,9 +115,7 @@ nav h1 {
     flex: auto;
     margin: auto 30%;
 }
-.container {
-    margin-top: 80px;
-}
+
 .row>* {
     flex-shrink: inherit;
 }
