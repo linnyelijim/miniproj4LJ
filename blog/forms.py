@@ -2,7 +2,7 @@
 # Lindsey Jimenez
 # Mini Project 4
 
-from .models import Comment, Contact, User
+from .models import Comment, Contact, User, Forum, Discussion
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
@@ -35,3 +35,15 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class CreateInForum(forms.ModelForm):
+    class Meta:
+        model = Forum
+        fields = "__all__"
+
+
+class CreateInDiscussion(forms.ModelForm):
+    class Meta:
+        model = Discussion
+        fields = "__all__"

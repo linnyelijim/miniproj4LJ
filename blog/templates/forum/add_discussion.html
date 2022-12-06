@@ -1,0 +1,30 @@
+{% extends 'home/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block header %}
+    <h1>{% block title %}Add Discussion{% endblock %}</h1>
+{% endblock %}
+<body>
+{% block content %}
+    {% block sidebar %} {% include 'home/sidebar.html' %} {% endblock sidebar %}
+    <div class="container">
+        <div class="row">
+            <h4>CHOOSE A THREAD TO CONTRIBUTE TO:</h4>
+            <div class="car box container">
+                <div class="col-md-8 card mb-4  mt-3 ">
+                    <div class="card-body">
+                        {% load crispy_forms_tags %}
+                        <form action="{% url 'add_discussion' %}" method="POST">
+                            {% csrf_token %}
+                            {{ thread.as_p }}
+                            <input type="submit" class="btn btn-success" value="submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

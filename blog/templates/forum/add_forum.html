@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block header %}
+    <h1>{% block title %}Add Thread{% endblock %}</h1>
+{% endblock %}
+<body>
+{% block content %}
+    {% block sidebar %} {% include 'home/sidebar.html' %} {% endblock sidebar %}
+    <div class="container">
+        <div class="row">
+            <h1>CREATE A THREAD:</h1>
+            <div class="car box container">
+                <div class="col-md-8 card mb-4  mt-3 ">
+                    <div class="card-body">
+                        {% load crispy_forms_tags %}
+                        <form action="{% url 'add_forum' %}" method="POST">
+                            {% csrf_token %}
+                            {{ thread.as_p }}
+                            <input type="submit" class="btn btn-success" value="submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

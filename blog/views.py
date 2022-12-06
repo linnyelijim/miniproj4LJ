@@ -1,9 +1,10 @@
 # INF601 - Advanced Programming in Python
 # Lindsey Jimenez
 # Mini Project 4
-
-from .forms import CommentForm, ContactForm, NewUserForm
-from .models import Post
+from django.views.generic import TemplateView
+from .services import get_games
+from .forms import CommentForm, ContactForm, NewUserForm, CreateInForum, CreateInDiscussion
+from .models import Post, Forum
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
@@ -17,6 +18,7 @@ from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.views import generic
+import requests
 
 
 # Provides generic list with objects of specified model
@@ -161,3 +163,48 @@ def password_reset_request(request):
     password_reset_form = PasswordResetForm()
     return render(request=request, template_name="accounts/password_reset.html",
                   context={"password_reset_form": password_reset_form})
+
+
+def main(request):
+    forums = Forum.objects.all()
+    count = forums.count()
+    discussions = []
+    for i in forums:
+        discussions.append(i.discussion_set.all())
+
+    context = {'forums': forums,
+               'count': count,
+               'discussions': discussions}
+    return render(request, 'forum/main.html', context)
+
+
+def add_forum(request):
+    thread = CreateInForum()
+    if request.method == 'POST':
+        thread = CreateInForum(request.POST)
+        if thread.is_valid():
+            thread.save()
+            return redirect('forum/main.html')
+    context = {'thread': thread}
+    return render(request, 'forum/add_forum.html', context)
+
+
+def add_discussion(request):
+    forum = CreateInDiscussion()
+    if request.method == 'POST':
+        forum = CreateInDiscussion(request.POST)
+        if forum.is_valid():
+            forum.save()
+            return redirect('forum/main.html')
+    context = {'forum': forum}
+    return render(request, 'forum/add_discussion.html', context)
+
+
+class GetGames(TemplateView):
+    template_name = 'games/get_games.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = {
+            'games': get_games(),
+        }
+        return context

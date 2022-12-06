@@ -3,7 +3,7 @@
 # Mini Project 4
 
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, Discussion, Forum
 
 
 # Sets the structure of posts
@@ -27,3 +27,5 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Post, PostAdmin)
+admin.site.register(Forum)
+admin.site.register(Discussion)

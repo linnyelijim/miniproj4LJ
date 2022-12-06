@@ -1,0 +1,67 @@
+{% extends 'home/base.html' %}
+
+
+<!DOCTYPE html>
+<body lang="en">
+{% block header %}
+    <h1>{% block title %}Games Forum{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+    {% block sidebar %} {% include 'home/sidebar.html' %} {% endblock sidebar %}
+    <div class="container">
+        <div class="row">
+            <div>
+                <h1>
+                    <form method="POST" action="{% url 'add_forum' %}">
+                        {% csrf_token %}
+                        <button class="btn btn-success" style="width:fit-content;">- Create Thread -</button>
+                    </form>
+                </h1>
+                <h7>Thread Count: {{ count }}</h7>
+                <div class="card-columns" style="padding: 10px; margin: 20px;"></div>
+
+                <div class="car box container">
+                    <div class="col-md-8 card mb-4  mt-3 ">
+                        <div class="card-body">
+                            {% for forum in forums %}
+                                {% load crispy_forms_tags %}
+                                <a href='{{ forum.link }}'><h3>{{ forum.topic }}</h3></a>
+                                <div class="card-body container">
+                                    <p>{{ forum.description }}</p>
+
+                                    <p> By: {{ forum.name }}</p>
+                                    email- {{ forum.email }}
+                                    <hr>
+                                    <h4>Views from other users</h4>
+                                    {% for discuss in discussions %}
+                                        {% for objs in discuss %}
+                                            {% if objs.forum == forum %}
+                                                {{ objs.discuss }}
+                                                <br>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                    <form method="POST" action="{% url 'add_discussion' %}">
+                                        {% csrf_token %}
+                                        <button class="btn btn-success"
+                                                style="width:fit-content;">
+                                            Add more
+                                        </button>
+                                    </form>
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            <div id="gameInfo">
+
+            </div>
+                {% include 'games/get_games.html' %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>
