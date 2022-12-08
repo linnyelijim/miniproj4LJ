@@ -17,7 +17,7 @@
                         {% load crispy_forms_tags %}
                         <form action="{% url 'add_discussion' %}" method="POST">
                             {% csrf_token %}
-                            {{ thread.as_p }}
+                            {{ forum.as_p }}
                             <input type="submit" class="btn btn-success" value="submit">
                         </form>
                     </div>

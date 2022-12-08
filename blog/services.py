@@ -3,10 +3,10 @@ import requests
 
 
 def get_games():
-    url = 'https://boardgamegeek.com/xmlapi2/thing?type=boardgame'
-    r = requests.get(url, headers={'Authorization':'Bearer %s' % 'access_token'})
-    games = r.json()
+    url = 'https://boardgamegeek.com/xmlapi2/hot?type=boardgame'
+    r = requests.get(url)
+    boardgames = r.json()
     games_list = []
-    for i in range(len(games['games'])):
-        games_list.append(games['games'][i])
+    for game in range(len(boardgames['games'])):
+        games_list.append(boardgames['games'][game])
     return games_list

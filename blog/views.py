@@ -208,3 +208,4 @@ class GetGames(TemplateView):
             'games': get_games(),
         }
         return context
+
