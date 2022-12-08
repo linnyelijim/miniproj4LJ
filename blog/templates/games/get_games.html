@@ -1,26 +1,24 @@
-
+{% load static %}
+{% block content %}
+<body>
+    <div class="container">
+        <div class="row">
             <table class="table is-fullwidth is-striped is-bordered">
                 <thead>
                 <tr>
                     <th>Name</th>
                     <th>Id</th>
-                    <th>Version</th>
-                    <th>Stats</th>
-                    <th>Type</th>
-                    <th></th>
-                    <th></th>
+                    <th>Description</th>
+                    <th>Year Published</th>
+                    <th>Max Players</th>
                 </tr>
                 </thead>
-                <tbody>
-                {% for game in games %}
-                    <tr>
-                        <th>{{ game.name }}</th>
-                        <td>{{ game.id }}</td>
-                        <td>{{ game.version }}</td>
-                        <td>{{ game.stats }}</td>
-                        <td>{{ game.type }}</td>
-                        <td></td>
-                    </tr>
-                {% endfor %}
-                </tbody>
+                <tbody id="game-table"></tbody>
             </table>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+<script src = {% static 'api.js' %} ></script>
+{% endblock %}
+</body>

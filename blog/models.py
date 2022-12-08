@@ -61,6 +61,16 @@ class Contact(forms.Form):
         return "Success"
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    avatar = models.ImageField(default='default.png', upload_to='media')
+    bio = models.TextField()
+
+    def __str__(self):
+        return self.user.username
+
+
 class Forum(models.Model):
     name = models.CharField(max_length=200, default="anonymous")
     email = models.CharField(max_length=200, null=True)

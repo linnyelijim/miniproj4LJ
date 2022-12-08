@@ -1,9 +1,10 @@
 # INF601 - Advanced Programming in Python
 # Lindsey Jimenez
 # Mini Project 4
+from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 from .services import get_games
-from .forms import CommentForm, ContactForm, NewUserForm, CreateInForum, CreateInDiscussion
+from .forms import CommentForm, ContactForm, NewUserForm, CreateInForum, CreateInDiscussion, UserForm, ProfileForm
 from .models import Post, Forum
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
@@ -165,6 +166,14 @@ def password_reset_request(request):
                   context={"password_reset_form": password_reset_form})
 
 
+@login_required
+def profile(request):
+    user_form = UserForm(instance=request.user)
+    profile_form = ProfileForm(instance=request.user.profile)
+    return render(request=request, template_name="users/profile.html",
+                  context={"user": request.user, "user_form": user_form, "profile_form": profile_form})
+
+
 def main(request):
     forums = Forum.objects.all()
     count = forums.count()
@@ -202,10 +211,4 @@ def add_discussion(request):
 
 class GetGames(TemplateView):
     template_name = 'games/get_games.html'
-
-    def get_context_data(self, *args, **kwargs):
-        context = {
-            'games': get_games(),
-        }
-        return context
 

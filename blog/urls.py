@@ -5,6 +5,7 @@
 from . import views
 from django.urls import path
 
+
 # Contains all app urls
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
@@ -21,4 +22,5 @@ urlpatterns = [
     path('add_forum/', views.add_forum, name='add_forum'),
     path('add_discussion/', views.add_discussion, name='add_discussion'),
     path('get_games/', views.GetGames.as_view(template_name='games/get_games.html'), name='Game View'),
+    path('profile/', views.profile, name='users_profile'),
 ]
