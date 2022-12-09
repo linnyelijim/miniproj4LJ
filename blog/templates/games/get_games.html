@@ -1,24 +1,26 @@
 {% load static %}
-{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
 <body>
-    <div class="container">
-        <div class="row">
-            <table class="table is-fullwidth is-striped is-bordered">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Id</th>
-                    <th>Description</th>
-                    <th>Year Published</th>
-                    <th>Max Players</th>
-                </tr>
-                </thead>
-                <tbody id="game-table"></tbody>
-            </table>
-        </div>
-    </div>
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Id</th>
+            <th scope="col">Description</th>
+            <th scope="col">Year Published</th>
+            <th scope="col">Max Players</th>
+        </tr>
+        </thead>
+        <tbody id="game-table">
+
+        </tbody>
+    </table>
 {% endblock %}
 {% block js %}
-<script src = {% static 'api.js' %} ></script>
+    <script src={% static 'api.js' %}></script>
 {% endblock %}
 </body>
+</html>
