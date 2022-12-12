@@ -3,7 +3,6 @@
 # Mini Project 4
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
-from .services import get_games
 from .forms import CommentForm, ContactForm, NewUserForm, CreateInForum, CreateInDiscussion, UserForm, ProfileForm
 from .models import Post, Forum
 from django.contrib import messages
@@ -19,7 +18,6 @@ from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.views import generic
-import requests
 
 
 # Provides generic list with objects of specified model
