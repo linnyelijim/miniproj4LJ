@@ -7,40 +7,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/javascript" src="{% static api.js %}"></script>
 </head>
-<body>
-{% block content %}
-    {% block sidebar %} {% include 'home/sidebar.html' %} {% endblock sidebar %}
-    <div class="container">
-        <div class="row">
-            <div>
-                <h2 class="text-center">Games Index</h2>
+<div>
+    {% block content %}
+        {% block sidebar %} {% include 'home/sidebar.html' %} {% endblock sidebar %}
+        <div class="container">
+            <div class="row">
+                <div>
+                    <h2 class="text-center">Games Index</h2>
 
-                <br>
+                    <br>
 
 
-                <p>
-                    Welcome to the games page. Here you can view all the board games known to man... and then some. Were
-                    constantly
-                    expanding and adding new games, so please feel free to reach out with game suggestions that you
-                    think we should
-                    add! We're more than happy to build our community and grow our games catalog!
-                    <br>
-                    <br>
-                    <br>
-                    <strong>
-                        Below is an example of a games page that is coming soon. Each tile will be linked to a page with
-                        more information about each board game.
-                    </strong>
-                </p>
+                    <p>
+                        Welcome to the games page. Here you can view all the board games known to man... and then some.
+                        Were
+                        constantly
+                        expanding and adding new games, so please feel free to reach out with game suggestions that you
+                        think we should
+                        add! We're more than happy to build our community and grow our games catalog!
+                        <br>
+                        <br>
+                        <br>
+                        <strong>
+                            Below is an example of a games page that is coming soon. Each tile will be linked to a page
+                            with
+                            more information about each board game.
+                        </strong>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-    <!--Creates photo tiles of games-->
-    <div class="row row-cols-1 row-cols-md-2 g-4" id="gameCards">
-        <div class="col">
-            <div class="card">
-                <div class="266192">
+        <!--Creates photo tiles of games-->
+
+        <div class="row row-cols-1 row-cols-md-2 g-4" id="gameCards">
+            <div class="col">
+                <div class="card">
                     <a href="{% url 'Game View' %}"><img
                             src="https://cf.geekdo-images.com/yLZJCVLlIx4c7eJEWUNJ7w__opengraph/img/d5aVUcak3R6QOHz5y-fvQdc8pwU=/fit-in/1200x630/filters:strip_icc()/pic4458123.jpg"
                             class="card-img-top" alt="..."></a>
@@ -55,10 +58,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="156129">
+
+            <div class="col">
+                <div class="card">
                     <a href="{% url 'Game View' %}"><img
                             src="https://cf.geekdo-images.com/1COY3oeK9aN2_XNimKaNww__itemrep/img/cAOvicFEw8eQs6D9b2G4E7MTp00=/fit-in/246x300/filters:strip_icc()/pic3033330.jpg"
                             class="card-img-top" alt="..."></a>
@@ -73,10 +75,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="1927">
+            <div class="col">
+                <div class="card">
                     <a href="{% url 'Game View' %}"><img
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZz21AJFzfrhecPm3erBSekWFTR6MQrbcpmA&usqp=CAU"
                             class="card-img-top" alt="..."></a>
@@ -90,10 +90,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="13">
+            <div class="col">
+                <div class="card">
                     <a href="{% url 'Game View' %}"><img
                             src="https://external-preview.redd.it/RvsIWCQoP581zMjp11OYHUHY5T6qNZXazsPemGUjNFU.jpg?width=640&crop=smart&auto=webp&s=1c67e55b62758230716b839b93187bdb4e235b3c"
                             class="card-img-top" alt="..."></a>
@@ -107,15 +105,9 @@
                 </div>
             </div>
         </div>
-    </div>
 
-{% endblock %}
-{% block js %}
-    <script src={% static 'api.js' %}>
-        getGames(266192)
-        getGames(156129)
-        getGames(1927)
-        getGames(13)
-    </script>
-{% endblock %}
-</body>
+    {% endblock %}
+    {% block js %}
+        <script src={% static 'api.js' %}></script>
+    {% endblock %}
+    </body>

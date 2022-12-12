@@ -193,7 +193,7 @@ def add_forum(request):
         thread = CreateInForum(request.POST)
         if thread.is_valid():
             thread.save()
-            return redirect('forum/main.html')
+            return redirect('main')
     context = {'thread': thread}
     return render(request, 'forum/add_forum.html', context)
 
@@ -204,7 +204,7 @@ def add_discussion(request):
         forum = CreateInDiscussion(request.POST)
         if forum.is_valid():
             forum.save()
-            return redirect('forum/main.html')
+            return redirect('main')
     context = {'forum': forum}
     return render(request, 'forum/add_discussion.html', context)
 

@@ -1,11 +1,9 @@
 {% extends 'home/base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
 {% block header %}
     <h1>{% block title %}Add Discussion{% endblock %}</h1>
 {% endblock %}
-<body>
+
 {% block content %}
     {% block sidebar %} {% include 'home/sidebar.html' %} {% endblock sidebar %}
     <div class="container">
@@ -26,5 +24,3 @@
         </div>
     </div>
 {% endblock %}
-</body>
-</html>

@@ -3,61 +3,63 @@
 {% block header %}
     <h1>{% block title %}Games Forum{% endblock %}</h1>
 {% endblock %}
+
 {% block content %}
     {% block sidebar %} {% include 'home/sidebar.html' %} {% endblock sidebar %}
     <div class="container">
-        <div class="row">
-            <div>
-                <h1>
-                    <form method="POST" action="{% url 'add_forum' %}">
-                        {% csrf_token %}
-                        <button class="btn btn-success" style="width:fit-content;">- Create Thread -</button>
-                    </form>
-                </h1>
-                <h7>Thread Count: {{ count }}</h7>
-                <div class="card-columns" style="padding: 10px; margin: 20px;"></div>
-
-                <div class="car box container">
-                    <div class="col-md-8 card mb-4  mt-3 ">
-                        <div class="card-body">
-                            {% for forum in forums %}
-                                {% load crispy_forms_tags %}
+        <div class="card-body">
+            <div class="head-forum">
+                <h5>Threads: {{ count }}</h5>
+                <form class="create-form" method="POST" action="{% url 'add_forum' %}">
+                    {% csrf_token %}
+                    <button class="btn btn-success">- Create Thread -</button>
+                </form>
+            </div>
+            <div class="car box container">
+                <div id="form-cards" class="card mb-4">
+                    <div id="comment-container" class="card-body">
+                        {% for forum in forums %}
+                            {% load crispy_forms_tags %}
+                            <div class="comment-block">
                                 <a href='{{ forum.link }}'><h3>{{ forum.topic }}</h3></a>
                                 <div class="card-body container">
-                                    <p>{{ forum.description }}</p>
-
-                                    <p> By: {{ forum.name }}</p>
-                                    email- {{ forum.email }}
-                                    <hr>
-                                    <h4>Views from other users</h4>
-                                    {% for discuss in discussions %}
-                                        {% for objs in discuss %}
-                                            {% if objs.forum == forum %}
-                                                {{ objs.discuss }}
-                                                <br>
-                                            {% endif %}
+                                    <div class="post-box">
+                                        <div class="post-item">
+                                            <p> By: {{ forum.name }} <br> {{ forum.email }}</p>
+                                            {{ forum.description }}
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <h4>Comments</h4>
+                                    <div class="comment-box">
+                                        {% for discuss in discussions %}
+                                            {% for objs in discuss %}
+                                                <div class="each-comment">
+                                                    {% if objs.forum == forum %}
+                                                        <p>By: {{ user.username }}</p>
+                                                        <div class="forum-describe">
+                                                            {{ objs.discuss }}
+                                                        </div>
+                                                        <br>
+                                                        <hr>
+                                                        </div>
+                                                    {% endif %}
+                                            {% endfor %}
                                         {% endfor %}
-                                    {% endfor %}
+                                    </div>
                                     <form method="POST" action="{% url 'add_discussion' %}">
                                         {% csrf_token %}
-                                        <button class="btn btn-success"
-                                                style="width:fit-content;">
-                                            Add more
+                                        <button class="btn btn-success">
+                                            Add Comment
                                         </button>
                                     </form>
                                 </div>
-
-                            {% endfor %}
-                        </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
-            <div id="gameInfo">
-
             </div>
-                {% include 'games/get_games.html' %}
-
-            </div>
+            <div id="gameInfo"></div>
         </div>
     </div>
 {% endblock %}
-</body>

@@ -3,16 +3,20 @@ html {
     background: #bcbbad;
     padding: 2rem;
 }
+
 body {
     border: 13px ridge #3c2904;
     box-shadow: 15px 15px 20px 8px #101e3a91;
 }
+
 .container {
     margin-top: 8%;
 }
+
 #indexPage .container {
     margin-top: 1%;
 }
+
 #base-style body {
     font-family: "Fantasy", sans-serif;
     font-size: 17px;
@@ -41,7 +45,13 @@ body {
 
 .card {
     box-shadow: 0 16px 48px #E3E7EB;
+    border: 3px outset whitesmoke !important;
 }
+
+#form-cards {
+    border: none;
+}
+
 #gameCards {
     display: flex;
     width: 95%;
@@ -114,13 +124,14 @@ nav h1 {
     margin: auto 30%;
 }
 
-.row>* {
+.row > * {
     flex-shrink: inherit;
 }
 
 .col-md-8 {
     width: 66.66666%;
 }
+
 p {
     display: block;
     margin-block-start: 1em;
@@ -128,6 +139,7 @@ p {
     margin-inline-start: 0;
     margin-inline-end: 0;
 }
+
 .action {
     background-image: linear-gradient(
             to right,
@@ -137,6 +149,7 @@ p {
     );
     color: #7c6957;
 }
+
 .brains {
     font-weight: 100;
     font-size: 65px;
@@ -333,6 +346,8 @@ input[type=submit] {
 #faq, .accordion-header {
     background-color: transparent;
     margin-top: 0;
+    border: 3px outset whitesmoke;
+    box-shadow: 1px 1px 8px whitesmoke;
 }
 
 .accordion-button {
@@ -361,14 +376,97 @@ input[type=submit] {
 .faq h2 {
     padding-top: 1rem;
 }
+
 .errorlist {
     display: none;
 }
 
 table {
-  border-collapse: collapse;
+    border-collapse: collapse;
 }
 
-th, td {
-  border: 1px solid black;
+#game-table {
+    max-height: 30px;
+}
+
+th, td, tr {
+    border: 1px solid black;
+}
+
+th {
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+tr {
+    padding: 8px;
+}
+
+.id, .published, .players, .name {
+    font-weight: bolder;
+    font-size: large;
+    text-justify: auto;
+}
+
+.describe {
+    overflow: auto;
+    font-style: italic;
+
+}
+
+.side-card {
+    box-shadow: 0 16px 48px #E3E7EB;
+}
+
+.comments {
+    border: 2px solid #ececec;
+    padding: 10px;
+    margin-bottom: 3px;
+}
+
+.mb-4, .my-4 {
+    box-shadow: 1px 1px 7px lightslategrey;
+}
+
+.site-heading {
+    box-shadow: none !important;
+}
+
+.card-columns {
+    padding: 10px;
+    margin: 20px;
+}
+
+.btn-success {
+    width: content-box;
+}
+
+.create-form {
+    float: right;
+}
+
+.head-forum {
+    padding-bottom: 20px;
+}
+
+.comment-block {
+    border: 6px ridge whitesmoke;
+    margin-bottom: 30px;
+    box-shadow: 6px 6px 10px whitesmoke;
+    padding: 20px
+}
+.each-comment {
+    margin-bottom: 20px;
+}
+.post-box {
+    border: 3px solid whitesmoke;
+    padding: 20px;
+    margin-bottom: 60px;
+}
+.text-muted {
+    font-size: 12px;
+}
+
+.forum-describe {
+    border: 3px dashed whitesmoke;
 }
