@@ -2,6 +2,8 @@
 <html lang="en">
 
 {% load static %}
+<head>
+    <title>Games</title>
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="{% static 'style.css' %}"/>
@@ -20,6 +22,7 @@
           crossorigin="anonymous"/>
 </head>
 <body>
+<!--Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">BRAINS&GAMES</a>
@@ -58,6 +61,7 @@
         </div>
     </div>
 </nav>
+<!--Retrieves game info-->
 {% block content %}
     <table class="table table-bordered table-striped table-light table-responsive">
         <tbody id="game-table" class="">
